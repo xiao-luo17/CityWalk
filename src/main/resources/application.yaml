@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    username: root
+    password: 123456
+    #?serverTimezone=UTC解决时区的报错
+    url: jdbc:mysql://localhost:3306/city_walk?serverTimezone=UTC&useUnicode=false&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #中英文国际化配置
+  messages:
+    basename: i18n.login
+
+mybatis:
+  type-aliases-package: com.example.pojo
+  mapper-locations: classpath*:com.example/mapper/*.xml,classpath*:com.example/mapper/admin/*.xml
+server:
+  port: 8080

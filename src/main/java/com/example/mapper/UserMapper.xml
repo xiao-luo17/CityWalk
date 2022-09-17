@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.UserMapper">
+<!--    获取全部User表字段 -->
+    <select id="queryUserList" resultType="com.example.pojo.User">
+        select * from city_walk.users where openId = #{openId};
+    </select>
+
+<!--    用户注册-->
+    <insert id="insertUser">
+        insert into users(openId) values (#{openId})
+    </insert>
+
+<!--    用户初次授权时载入用户信息-->
+    <update id="updateUserWxInfo">
+        update city_walk.users set nickname = #{nickname}, headshot = #{headshot}
+        where openId = #{openId}
+    </update>
+
+<!--    根据该用户openid和传入的表单修改其对应字段（“未做空校验”）-->
+    <update id="updateUserInfo">
+        update city_walk.users set userId=#{userId},nameplateNumber=#{nameplateNumber},headshot=#{headshot},
+                                   nickname=#{nickname},email=#{email},phone=#{phone},sex=#{sex},
+                                   ipTerritory=#{ipTerritory},birthday=#{birthday},area=#{area},
+                                   school=#{school},tagWords=#{tagWords},slogan=#{slogan},userPermissions=#{userPermissions},
+                                   able=#{able},token=#{token}
+        where openId=#{openId}
+    </update>
+</mapper>

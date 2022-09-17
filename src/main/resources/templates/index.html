@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Admin</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/signin.css" rel="stylesheet">
+    <link th:href="@{/css/signin.css}" rel="stylesheet">
+</head>
+
+<body class="text-center">
+<form class="form-signin" th:action="@{/admin}">
+    <img class="mb-4" th:src="@{/img/avatar.jpg}" alt="" width="130" height="130">
+    <h1 class="h3 mb-3 font-weight-normal" th:text="#{login.tip}">City Walk Admin</h1>
+    <p style="color: red" th:if="${not #strings.isEmpty(msg)}" th:text="${msg}"></p>
+    <label class="sr-only">Username</label>
+    <input type="text" class="form-control" name="username" th:placeholder="#{login.username}" required="" autofocus="">
+    <label class="sr-only">Password</label>
+    <input type="password" class="form-control" name="password" th:placeholder="#{login.password}" required="">
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> [[#{login.remember}]]
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">[[#{login.btn}]]</button>
+    <p class="mt-5 mb-3 text-muted">© 2022-2023</p>
+    <a class="btn btn-sm" th:href="@{/index.html(lan='zh_CN')}">中文</a>
+    <a class="btn btn-sm" th:href="@{/index.html(lan='en_US')}">English</a>
+</form>
+<div class="info">我想站在城市的高点，俯瞰这城市的喧嚣繁华 | 我想站在城市的一角，遥望这城市的无数繁灯</div>
+
+</body>
+
+</html>

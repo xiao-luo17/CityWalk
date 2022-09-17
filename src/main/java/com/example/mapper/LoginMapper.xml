@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.LoginMapper">
+    <!--更新token-->
+    <update id="updateToken">
+        update
+            users
+        set
+            token = #{token}
+        where
+            openId = #{openId}
+    </update>
+
+    <!--    根据token查询用户 -->
+    <select id="queryUserByToken" resultType="com.example.pojo.User">
+        select * from city_walk.users where token = #{token};
+    </select>
+</mapper>

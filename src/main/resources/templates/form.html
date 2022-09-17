@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Admin</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<!-- 头部导航栏common组件插入 -->
+<div th:replace="~{commons/commons::topbar}"></div>
+<div class="container-fluid">
+    <div class="row">
+        <!--侧边栏common组件插入-->
+        <div th:replace="~{commons/commons::sidebar}"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <h2>管理员数据测试表单(openId不能为空)</h2>
+            <form th:action="@{/add}" method="post">
+                <div class="form-group">
+                    <lable>userId</lable>
+                    <input type="text" class="form-control" name="userId">
+                </div>
+                <div class="form-group">
+                    <lable>nameplateNumber</lable>
+                    <input type="text" class="form-control" name="nameplateNumber">
+                </div>
+                <div class="form-group">
+                    <lable>headshot</lable>
+                    <input type="text" class="form-control" name="headshot">
+                </div>
+                <div class="form-group">
+                    <lable>nickname</lable>
+                    <input type="text" class="form-control" name="nickname">
+                </div>
+                <div class="form-group">
+                    <lable>email</lable>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <lable>phone</lable>
+                    <input type="text" class="form-control" name="phone">
+                </div>
+                <div class="form-group">
+                    <lable>sex</lable>
+                    <input type="text" class="form-control" name="sex">
+                </div>
+                <div class="form-group">
+                    <lable>ipTerritory</lable>
+                    <input type="text" class="form-control" name="ipTerritory">
+                </div>
+                <div class="form-group">
+                    <lable>birthday</lable>
+                    <input type="text" class="form-control" name="birthday">
+                </div>
+                <div class="form-group">
+                    <lable>area</lable>
+                    <input type="text" class="form-control" name="area">
+                </div>
+                <div class="form-group">
+                    <lable>school</lable>
+                    <input type="text" class="form-control" name="school">
+                </div>
+                <div class="form-group">
+                    <lable>tagWords</lable>
+                    <input type="text" class="form-control" name="tagWords">
+                </div>
+                <div class="form-group">
+                    <lable>slogan</lable>
+                    <input type="text" class="form-control" name="slogan">
+                </div>
+                <div class="form-group">
+                    <lable>userPermissions</lable>
+                    <input type="text" class="form-control" name="userPermissions">
+                </div>
+                <div class="form-group">
+                    <lable>able</lable>
+                    <input type="text" class="form-control" name="able">
+                </div>
+                <div class="form-group">
+                    <lable>token</lable>
+                    <input type="text" class="form-control" name="token">
+                </div>
+                <div class="form-group">
+                    <lable>openId</lable>
+                    <input type="text" class="form-control" name="openId">
+                </div>
+
+<!--                <div class="form-group">-->
+<!--                    <lable>Gender</lable>-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="gender" value="1">-->
+<!--                        <lable class="form-check-label">男</lable>-->
+<!--                    </div>-->
+<!--                    <div class="form-check form-check-inline">-->
+<!--                        <input class="form-check-input" type="radio" name="gender" value="0">-->
+<!--                        <lable class="form-check-label">女</lable>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>department</label>-->
+<!--                    <select class="form-control" name="department.id">-->
+<!--                        <option></option>-->
+<!--                    </select>-->
+<!--                </div>-->
+<!--                <div class="form-group">-->
+<!--                    <label>Birth</label>-->
+<!--                    <input type="text" class="form-control" name="birth" placeholder="2020-5-22">-->
+<!--                </div>-->
+                <button type="submit" class="btn btn-primary">提交到数据库</button>
+            </form>
+            </br></br>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="asserts/js/popper.min.js"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="asserts/js/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+<!-- Graphs -->
+<script type="text/javascript" src="asserts/js/Chart.min.js"></script>
+<script>
+    var ctx = document.getElementById("myChart");
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+            datasets: [{
+                data: [15339, 21345, 18483, 24003, 23489, 24092, 12034],
+                lineTension: 0,
+                backgroundColor: 'transparent',
+                borderColor: '#007bff',
+                borderWidth: 4,
+                pointBackgroundColor: '#007bff'
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: false
+                    }
+                }]
+            },
+            legend: {
+                display: false,
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
