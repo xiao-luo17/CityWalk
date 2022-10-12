@@ -19,9 +19,28 @@ public class AllUserServiceImpl implements AllUserService{
     }
 
     @Override
-    public int addUser(String userId, String nameplateNumber, String headshot, String nickname, String email,
+    public int addUser(int userId, String nameplateNumber, String headshot, String nickname, String email,
                         String phone, String sex, String ipTerritory, String birthday, String area, String school,
                         String tagWords, String slogan, String userPermissions, String able, String token, String openId) {
         return allUserMapper.addUser(userId,nameplateNumber,headshot,nickname,email,phone,sex,ipTerritory,birthday,area,school,tagWords,slogan,userPermissions,able,token,openId);
+    }
+
+    @Override
+    public int deleteUser(String userId){
+        return allUserMapper.deleteUser(userId);
+    }
+
+    @Override
+    public int update(String userId, String nameplateNumber, String headshot, String nickname, String email,
+                      String phone, String sex, String ipTerritory, String birthday, String area, String school,
+                      String tagWords, String slogan, String userPermissions, String able, String token, String openId) {
+        return allUserMapper.update(userId, nameplateNumber, headshot, nickname, email,
+                phone, sex, ipTerritory, birthday, area, school,
+                tagWords, slogan, userPermissions, able, token, openId);
+    }
+
+    @Override
+    public User queryUserById(String userId){
+        return allUserMapper.queryUserById(userId);
     }
 }

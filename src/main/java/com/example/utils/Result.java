@@ -39,6 +39,9 @@ public class Result {
     public static Result Fail(String msg){
         return Fail(500,msg,null);
     }
+    public static Result LOGIN_Fail(String msg){
+        return Fail(400,msg,null);
+    }
 
     public static Result Fail(int code, String msg, Object data) {
         Result r = new Result();

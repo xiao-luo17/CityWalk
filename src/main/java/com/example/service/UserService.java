@@ -2,6 +2,7 @@ package com.example.service;
 
 import com.example.pojo.User;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 public interface UserService {
@@ -15,5 +16,5 @@ public interface UserService {
     int updateUserWxInfo(String openId, String nickname, String headshot);
 
     //根据该用户openid和传入的表单修改其对应字段（“未做空校验”）
-    int updateUserInfo(String userInfo);
+    int updateUserInfo(String userInfo, HttpServletRequest request);
 }

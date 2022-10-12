@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import com.example.pojo.User;
+import com.example.service.LoginService;
 import com.example.service.UserService;
 import com.example.utils.CookieUtil;
 import com.example.utils.GetUserInfoUtil;
@@ -25,6 +26,8 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private LoginService loginService;
 
     @RequestMapping(value = "/queryUserList",method = RequestMethod.POST)
     public Result queryUserList(@RequestBody String openid){
@@ -32,6 +35,28 @@ public class UserController {
             JSONObject object = JSONObject.fromObject(openid);
             String openId = (String) object.get("openid");
             return Result.SUCCESS(userService.queryUserList(openId));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.Fail(e.getMessage());
+        }
+    }
+
+    /**
+     * 根据token返回用户信息
+     * @param request
+     * @return
+     */
+    @RequestMapping(value = "/queryUserInfo",method = RequestMethod.POST)
+    public Result queryUserInfo(HttpServletRequest request){
+        try{
+            Result result = loginService.checkToken(request);
+            if(result.getCode() == 200) {  //代表校验通过
+                User user = (User) result.getData();
+                System.out.println("queryUserInfo==>" + user);
+                return Result.SUCCESS(user);
+            } else {
+                return Result.LOGIN_Fail("token校验失败！");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return Result.Fail(e.getMessage());
@@ -85,10 +110,10 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/updateUserInfo",method = RequestMethod.POST)
-    public Result updateUserInfo(@RequestBody String userInfo) {
+    public Result updateUserInfo(@RequestBody String userInfo,HttpServletRequest request) {
 
         try {
-            int res = userService.updateUserInfo(userInfo);
+            int res = userService.updateUserInfo(userInfo,request);
             if (res == 0) return Result.Fail("数据修改失败！");
             else return Result.SUCCESS("数据更新成功！");
         }catch (Exception e){

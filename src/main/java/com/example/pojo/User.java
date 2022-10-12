@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @Component
 public class User {
-    private String userId;
+    private int userId;
     private String nameplateNumber;
     private String headshot;
     private String nickname;

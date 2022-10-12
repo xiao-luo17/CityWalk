@@ -19,7 +19,7 @@ public interface UserMapper {
     int updateUserWxInfo(String openId, String nickname, @Param("headshot") String headshot);
 
     //根据该用户openid和传入的表单修改其对应字段（“未做空校验”）
-    int updateUserInfo(String userId, String nameplateNumber, String headshot, String nickname, String email,
+    int updateUserInfo(String nameplateNumber, String headshot, String nickname, String email,
                         String phone, String sex, String ipTerritory, String birthday, String area, String school,
                         String tagWords, String slogan, String userPermissions, String able, String token, String openId);
 }

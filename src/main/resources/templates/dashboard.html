@@ -8,9 +8,11 @@
 
     <title>City Walk Admin</title>
     <!-- Bootstrap core CSS -->
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
     <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
+    <link href="../static/css/dashboard.css" rel="stylesheet">
     <link th:href="@{/css/dashboard.css}" rel="stylesheet">
     <style type="text/css">
         /* Chart.js */
@@ -80,8 +82,47 @@
                 </div>
             </div>
             <div>
-                <h2>City Walk-数据库后台管理界面</h2>
-                <img width="500px" height="500px" th:src="@{/img/avatar.jpg}">
+                <h2>City Walk 数据库后台管理界面</h2>
+                </br>
+                <h3>项目内容</h3>
+                </br>
+                <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h4>
+                </br></br>
+                <h3>参与贡献</h3>
+                <div class="table-responsive">
+                    <table style="width: 70%" class="text-center table table-striped table-sm">
+                        <thead>
+                        <tr>
+                            <th>昵称</th>
+                            <th>介绍</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Richerlv</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>xiao-luo17</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Lai Zhouyou</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>C P</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>小 祁</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="align-content-center"><img width="200px" height="200px" th:src="@{/img/avatar.jpg}"></div>
             </div>
             <canvas class="my-4 chartjs-render-monitor" id="myChart" width="1076" height="454"
                     style="display: block; width: 1076px; height: 454px;"></canvas>

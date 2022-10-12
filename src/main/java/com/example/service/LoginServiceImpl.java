@@ -34,15 +34,16 @@ public class LoginServiceImpl implements LoginService{
      */
     @Override
     public Result checkToken(HttpServletRequest request) {
-//        System.out.println("==================checkToken=================");
         String token = request.getHeader("token");
-//        System.out.println(token);
         if(StringUtils.isEmpty(token)) {
             return Result.Fail("登录验证失效，请重新登录");
         }
         List<User> userList = loginMapper.queryUserByToken(token);
+        if(userList == null || userList.size() == 0) {
+            return Result.Fail("登录验证失效，请重新登录");
+        }
         User user = (User) userList.get(0);
-//        System.out.println(user);
+        System.out.println("checkToken===>" + user);
         if(user == null) {
             return Result.Fail("登录验证失效，请重新登录");
         }

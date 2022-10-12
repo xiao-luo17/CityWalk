@@ -6,6 +6,7 @@ import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 
@@ -14,12 +15,14 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private LoginService loginService;
 
     @Override
     public List<User> queryUserList(String openId) {
         List<User> userList = userMapper.queryUserList(openId);
         for (User user : userList) {
-            System.out.println(user);
+            System.out.println("UserServiceImpl==>" + user);
         }
         return userList;
     }
@@ -35,11 +38,12 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int updateUserInfo(String userInfo){
+    public int updateUserInfo(String userInfo, HttpServletRequest request){
         //json解析
         JSONObject object = JSONObject.fromObject(userInfo);
-        String openId = (String) object.get("openid");
-        String userId = (String) object.get("userId");
+        //String openId = (String) object.get("openid");
+
+//        String userId = (String) object.get("userId");
         String nameplateNumber = (String) object.get("nameplateNumber");
         String headshot = (String) object.get("headshot");
         String nickname = (String) object.get("nickname");
@@ -55,7 +59,11 @@ public class UserServiceImpl implements UserService{
         String userPermissions = (String) object.get("userPermissions");
         String able = (String) object.get("able");
         String token = (String) object.get("token");
-        return userMapper.updateUserInfo(userId, nameplateNumber, headshot, nickname, email, phone, sex, ipTerritory,
+        User user = (User)loginService.checkToken(request).getData();
+        String openId = user.getOpenId();
+        int res = userMapper.updateUserInfo(nameplateNumber, headshot, nickname, email, phone, sex, ipTerritory,
                 birthday, area, school, tagWords, slogan, userPermissions, able, token, openId);
+        System.out.println("修改信息--->" + res);
+        return res;
     }
 }

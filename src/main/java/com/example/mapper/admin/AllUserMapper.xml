@@ -9,6 +9,10 @@
         select * from city_walk.users;
     </select>
 
+    <select id="queryUserById" resultType="com.example.pojo.User">
+        select * from city_walk.users where userId = #{userId};
+    </select>
+
     <insert id="addUser" parameterType="com.example.pojo.User">
         insert into users(openId,userId,nameplateNumber,headshot,nickname,email,phone,sex,
                           ipTerritory,birthday,area,school,tagWords,slogan,userPermissions,able,token)
@@ -16,5 +20,18 @@
                #{phone},#{sex},#{ipTerritory},#{birthday},#{area},#{school},#{tagWords},
                #{slogan},#{userPermissions},#{able},#{token});
     </insert>
+
+    <delete id="deleteUser">
+        delete from city_walk.users where userId = #{userId};
+    </delete>
+
+    <update id="update">
+        update city_walk.users set nameplateNumber=#{nameplateNumber},headshot=#{headshot},
+                                   nickname=#{nickname},email=#{email},phone=#{phone},sex=#{sex},
+                                   ipTerritory=#{ipTerritory},birthday=#{birthday},area=#{area},
+                                   school=#{school},tagWords=#{tagWords},slogan=#{slogan},userPermissions=#{userPermissions},
+                                   able=#{able},token=#{token},openId=#{openId}
+        where userId=#{userId}
+    </update>
 
 </mapper>

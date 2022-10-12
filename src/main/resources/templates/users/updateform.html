@@ -50,98 +50,76 @@
         <div th:replace="~{commons/commons::sidebar}"></div>
 
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
-            <h2>管理员数据测试表单(openId不能为空)</h2>
-            <form th:action="@{/add}" method="post">
+            <h2>管理员数据测试表单(userId不能为空)</h2>
+            <form th:action="@{/update}" method="post">
                 <div class="form-group">
                     <lable>userId</lable>
-                    <input type="text" class="form-control" name="userId">
+                    <input th:value="${user.userId}" type="text" class="form-control" name="userId">
                 </div>
                 <div class="form-group">
                     <lable>nameplateNumber</lable>
-                    <input type="text" class="form-control" name="nameplateNumber">
+                    <input th:value="${user.nameplateNumber}" type="text" class="form-control" name="nameplateNumber">
                 </div>
                 <div class="form-group">
                     <lable>headshot</lable>
-                    <input type="text" class="form-control" name="headshot">
+                    <input th:value="${user.headshot}" type="text" class="form-control" name="headshot">
                 </div>
                 <div class="form-group">
                     <lable>nickname</lable>
-                    <input type="text" class="form-control" name="nickname">
+                    <input th:value="${user.nickname}" type="text" class="form-control" name="nickname">
                 </div>
                 <div class="form-group">
                     <lable>email</lable>
-                    <input type="text" class="form-control" name="email">
+                    <input th:value="${user.email}" type="text" class="form-control" name="email">
                 </div>
                 <div class="form-group">
                     <lable>phone</lable>
-                    <input type="text" class="form-control" name="phone">
+                    <input th:value="${user.phone}" type="text" class="form-control" name="phone">
                 </div>
                 <div class="form-group">
                     <lable>sex</lable>
-                    <input type="text" class="form-control" name="sex">
+                    <input th:value="${user.sex}" type="text" class="form-control" name="sex">
                 </div>
                 <div class="form-group">
                     <lable>ipTerritory</lable>
-                    <input type="text" class="form-control" name="ipTerritory">
+                    <input th:value="${user.ipTerritory}" type="text" class="form-control" name="ipTerritory">
                 </div>
                 <div class="form-group">
                     <lable>birthday</lable>
-                    <input type="text" class="form-control" name="birthday">
+                    <input th:value="${user.birthday}" type="text" class="form-control" name="birthday">
                 </div>
                 <div class="form-group">
                     <lable>area</lable>
-                    <input type="text" class="form-control" name="area">
+                    <input th:value="${user.area}" type="text" class="form-control" name="area">
                 </div>
                 <div class="form-group">
                     <lable>school</lable>
-                    <input type="text" class="form-control" name="school">
+                    <input th:value="${user.school}" type="text" class="form-control" name="school">
                 </div>
                 <div class="form-group">
                     <lable>tagWords</lable>
-                    <input type="text" class="form-control" name="tagWords">
+                    <input th:value="${user.tagWords}" type="text" class="form-control" name="tagWords">
                 </div>
                 <div class="form-group">
                     <lable>slogan</lable>
-                    <input type="text" class="form-control" name="slogan">
+                    <input th:value="${user.slogan}" type="text" class="form-control" name="slogan">
                 </div>
                 <div class="form-group">
                     <lable>userPermissions</lable>
-                    <input type="text" class="form-control" name="userPermissions">
+                    <input th:value="${user.userPermissions}" type="text" class="form-control" name="userPermissions">
                 </div>
                 <div class="form-group">
                     <lable>able</lable>
-                    <input type="text" class="form-control" name="able">
+                    <input th:value="${user.able}" type="text" class="form-control" name="able">
                 </div>
                 <div class="form-group">
                     <lable>token</lable>
-                    <input type="text" class="form-control" name="token">
+                    <input th:value="${user.token}" type="text" class="form-control" name="token">
                 </div>
                 <div class="form-group">
                     <lable>openId</lable>
-                    <input type="text" class="form-control" name="openId">
+                    <input th:value="${user.openId}" type="text" class="form-control" name="openId">
                 </div>
-
-<!--                <div class="form-group">-->
-<!--                    <lable>Gender</lable>-->
-<!--                    <div class="form-check form-check-inline">-->
-<!--                        <input class="form-check-input" type="radio" name="gender" value="1">-->
-<!--                        <lable class="form-check-label">男</lable>-->
-<!--                    </div>-->
-<!--                    <div class="form-check form-check-inline">-->
-<!--                        <input class="form-check-input" type="radio" name="gender" value="0">-->
-<!--                        <lable class="form-check-label">女</lable>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label>department</label>-->
-<!--                    <select class="form-control" name="department.id">-->
-<!--                        <option></option>-->
-<!--                    </select>-->
-<!--                </div>-->
-<!--                <div class="form-group">-->
-<!--                    <label>Birth</label>-->
-<!--                    <input type="text" class="form-control" name="birth" placeholder="2020-5-22">-->
-<!--                </div>-->
                 <button type="submit" class="btn btn-primary">提交到数据库</button>
             </form>
             </br></br>

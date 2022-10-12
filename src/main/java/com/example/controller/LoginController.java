@@ -54,27 +54,27 @@ public class LoginController {
                 //生成token
                 String token = UUIDUtil.uuid();
                 //把用户存到session中
-                request.getSession().setAttribute("token", user);
+//                request.getSession().setAttribute("token", user);
                 loginService.updateToken(token, openid);
                 return Result.SUCCESS("用户已存在，登录成功", token); //用户存在，返回结果
             }else {
                 //用户不存在，新建用户信息
                 int res = userService.insertUser(openid);
                 if (res <= 0){
-                    return Result.Fail("登录失败");
+                    return Result.Fail("登录失败,插入数据库失败");
                 }
                 List<User> userList = userService.queryUserList(openid);
                 User user = userList.get(0);
                 //生成token
                 String token = UUIDUtil.uuid();
                 //把用户存到session中
-                request.getSession().setAttribute("token", user);
+//                request.getSession().setAttribute("token", user);
                 loginService.updateToken(token, openid);
                 return Result.SUCCESS("登录成功", token);
             }
         }
 
-        return Result.Fail("授权失败");
+        return Result.Fail("登录失败，请求微信小程序官网");
     }
 
 

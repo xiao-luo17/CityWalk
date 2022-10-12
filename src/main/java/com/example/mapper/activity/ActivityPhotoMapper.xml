@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.activity.ActivityPhotoMapper">
+
+    <!--    添加创作内容对应的图片-->
+    <insert id="insertActivityPhoto">
+        INSERT INTO
+            activity_photo
+            (activityPhotoUrl,activityId)
+        VALUES
+            (#{activityPhotoUrl}, #{activityId})
+    </insert>
+
+</mapper>

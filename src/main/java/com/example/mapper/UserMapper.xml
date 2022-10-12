@@ -21,7 +21,7 @@
 
 <!--    根据该用户openid和传入的表单修改其对应字段（“未做空校验”）-->
     <update id="updateUserInfo">
-        update city_walk.users set userId=#{userId},nameplateNumber=#{nameplateNumber},headshot=#{headshot},
+        update city_walk.users set nameplateNumber=#{nameplateNumber},headshot=#{headshot},
                                    nickname=#{nickname},email=#{email},phone=#{phone},sex=#{sex},
                                    ipTerritory=#{ipTerritory},birthday=#{birthday},area=#{area},
                                    school=#{school},tagWords=#{tagWords},slogan=#{slogan},userPermissions=#{userPermissions},

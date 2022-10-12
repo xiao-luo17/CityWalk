@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.creation.CreationPhotoMapper">
+
+    <!--    添加创作内容对应的图片-->
+    <insert id="insertCreationPhoto">
+        INSERT INTO
+            creation_photo
+            (photoUrl,creationId)
+        VALUES
+            (#{photoUrl}, #{creationId})
+    </insert>
+
+</mapper>

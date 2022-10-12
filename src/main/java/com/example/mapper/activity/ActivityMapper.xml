@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.activity.ActivityMapper">
+
+    <!--    查活动 -->
+    <select id="queryActivityById" resultType="com.example.pojo.Activity">
+        select * from city_walk.activity where activityId = #{activityId}
+    </select>
+
+    <update id="addLike">
+        update city_walk.activity set likes = #{likes}
+        where activityId = #{activityId};
+    </update>
+
+    <insert id="insertActivity" keyProperty="activityId" useGeneratedKeys="true">
+        INSERT INTO
+            activity
+            (activityTitle,hostOrganization,activityDetail,publishDate,publishUserOpenId)
+        VALUES
+            (#{activityTitle}, #{hostOrganization}, #{activityDetail}, #{publishDate}, #{publishUserOpenId})
+    </insert>
+
+    <!--    查活动 -->
+    <select id="queryActivityByOpenId" resultType="com.example.pojo.Activity">
+        select * from city_walk.activity where publishUserOpenId = #{publishUserOpenId}
+    </select>
+
+</mapper>
